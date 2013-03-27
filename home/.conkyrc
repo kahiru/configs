@@ -8,5 +8,5 @@ use_spacer none
 mpd_host localhost
 
 TEXT
-${mpd_status}: ${mpd_artist} - ${mpd_title} | ${exec acpi -V | head -n1} | ${time  %a %d.%m.%Y %k:%M} 
+${exec cat /tmp/wkstats} | ${mpd_status}: ${mpd_artist} - ${mpd_title} | ${exec acpi -V | head -n1} | ${time  %a %d.%m.%Y %k:%M} 
 
