@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 # APPLAUNCH
+=======
+#my applaunch keybindings
+>>>>>>> 3b1071f70e377d3f7e831642b09526bb95599888
 bindsym $mod+F12 exec /usr/bin/screenlock.sh lock
 bindsym $mod+Shift+F12 exec /usr/bin/screenlock.sh dpmslock
 bindsym $mod+w exec exec google-chrome 
 bindsym $mod+f exec pcmanfm
 bindsym $mod+Return exec sakura
+<<<<<<< HEAD
 bindsym $mod+d exec --no-startup-id dmenu_run -fn "xft:droid sans:bold:pixelsize=11:antialias=true:hinting=slight" -nb "#0f0f0f" -nf "#a6a6a6" -sb "#0f0f0f" -sf "#8f8fed"
 # /APPLAUNCH
+=======
+>>>>>>> 3b1071f70e377d3f7e831642b09526bb95599888
 
 set $mod Mod4
 bindsym $mod+x move workspace to right
@@ -17,7 +24,12 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+q kill
 
+<<<<<<< HEAD
 # FOCUS
+=======
+# start dmenu (a program launcher)
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "xft:droid sans:bold:pixelsize=11:antialias=true:hinting=slight" -nb "#0f0f0f" -nf "#a6a6a6" -sb "#0f0f0f" -sf "#8f8fed"
+>>>>>>> 3b1071f70e377d3f7e831642b09526bb95599888
 
 # change focus
 bindsym $mod+j focus left
@@ -69,10 +81,14 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+Shift+a focus child
 
+<<<<<<< HEAD
 # /FOCUS
 
 # WORKSPACES
 
+=======
+#WORKSPACE ASSIGNMENT
+>>>>>>> 3b1071f70e377d3f7e831642b09526bb95599888
 #main output - LVDS1
 #secondary output - VGA1
 
@@ -147,8 +163,11 @@ bindsym $mod+Shift+F8 move container to workspace 8e
 bindsym $mod+Shift+F9 move container to workspace 9e
 bindsym $mod+Shift+F10 move container to workspace 10e
 
+<<<<<<< HEAD
 # /WORKSPACES
 
+=======
+>>>>>>> 3b1071f70e377d3f7e831642b09526bb95599888
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
@@ -185,16 +204,24 @@ mode "resize" {
 bindsym $mod+g mode "resize"
 #workspace_auto_back_and_forth yes
 
+<<<<<<< HEAD
 # LOOKS
+=======
+#LOOKS
+>>>>>>> 3b1071f70e377d3f7e831642b09526bb95599888
 
 client.focused        #0F0F0F #7FB256 #F5F5FF
 client.focused_inactive    #0F0F0F #7FB256 #E5E5E5
 client.unfocused    #0F0F0F #5697B2 #E5E5E5
 client.urgent        #0F0F0F #BC9B54 #E5E5E5
 
+<<<<<<< HEAD
 # /LOOKS
 
 # WINDOW ASSIGNMENTS
+=======
+#WINDOW ASSIGNMENTS
+>>>>>>> 3b1071f70e377d3f7e831642b09526bb95599888
 for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
 assign [class="Firefox"] 2
 assign [class="Pidgin"] 1
@@ -205,9 +232,13 @@ for_window [Class="Google-chrome"] border 1pixel
 for_window [Class="google-chrome"] border 1pixel
 for_window [class="Pidgin"] border 1pixel
 for_window [class="ncmpcpp"] border 1pixel
+<<<<<<< HEAD
 # /WINDOW ASSIGNMENTS
 
 # BAR
+=======
+
+>>>>>>> 3b1071f70e377d3f7e831642b09526bb95599888
 bar {
 #mode hide
 font pango:VL PGothic Regular 10
@@ -224,4 +255,7 @@ font pango:VL PGothic Regular 10
         }
 position top
 }
+<<<<<<< HEAD
 # /BAR
+=======
+>>>>>>> 3b1071f70e377d3f7e831642b09526bb95599888
