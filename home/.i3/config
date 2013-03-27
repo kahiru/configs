@@ -75,42 +75,42 @@ bindsym $mod+Shift+a focus child
 # secondary output - VGA1
 
 # assign Xe workspaces to secondary output
-workspace "1e" output VGA1
-workspace "2e" output VGA1
-workspace "3e" output VGA1
-workspace "4e" output VGA1
-workspace "5e" output VGA1
-workspace "6e" output VGA1
-workspace "7e" output VGA1
-workspace "8e" output VGA1
-workspace "9e" output VGA1
-workspace "10e" output VGA1
+workspace "一e" output VGA1
+workspace "二e" output VGA1
+workspace "三e" output VGA1
+workspace "四e" output VGA1
+workspace "五e" output VGA1
+workspace "六e" output VGA1
+workspace "七e" output VGA1
+workspace "八e" output VGA1
+workspace "九e" output VGA1
+workspace "十e" output VGA1
 workspace "elock" output VGA1
 
 # assign X workspaces to primary output
-workspace 1 output LVDS1
-workspace 2 output LVDS1
-workspace 3 output LVDS1
-workspace 4 output LVDS1
-workspace 5 output LVDS1
-workspace 6 output LVDS1
-workspace 7 output LVDS1
-workspace 8 output LVDS1
-workspace 9 output LVDS1
-workspace 10 output LVDS1
+workspace "一" output LVDS1
+workspace "二" output LVDS1
+workspace "三" output LVDS1
+workspace "四" output LVDS1
+workspace "五" output LVDS1
+workspace "六" output LVDS1
+workspace "七" output LVDS1
+workspace "八" output LVDS1
+workspace "九" output LVDS1
+workspace "十" output LVDS1
 workspace "lock" output LVDS1
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace "一"
+bindsym $mod+2 workspace "二"
+bindsym $mod+3 workspace "三"
+bindsym $mod+4 workspace "四"
+bindsym $mod+5 workspace "五"
+bindsym $mod+6 workspace "六"
+bindsym $mod+7 workspace "七"
+bindsym $mod+8 workspace "八"
+bindsym $mod+9 workspace "九"
+bindsym $mod+0 workspace "十"
 
 bindsym $mod+F1 workspace 1e
 bindsym $mod+F2 workspace 2e
@@ -124,16 +124,16 @@ bindsym $mod+F9 workspace 9e
 bindsym $mod+F10 workspace 10e
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace "一"
+bindsym $mod+Shift+2 move container to workspace "二"
+bindsym $mod+Shift+3 move container to workspace "三"
+bindsym $mod+Shift+4 move container to workspace "四"
+bindsym $mod+Shift+5 move container to workspace "五"
+bindsym $mod+Shift+6 move container to workspace "六"
+bindsym $mod+Shift+7 move container to workspace "七"
+bindsym $mod+Shift+8 move container to workspace "八"
+bindsym $mod+Shift+9 move container to workspace "九"
+bindsym $mod+Shift+0 move container to workspace "十"
 
 bindsym $mod+Shift+F1 move container to workspace 1e
 bindsym $mod+Shift+F2 move container to workspace 2e
@@ -183,16 +183,16 @@ bindsym $mod+g mode "resize"
 #workspace_auto_back_and_forth yes
 
 # LOOKS
-client.focused        #0F0F0F #7FB256 #F5F5FF
-client.focused_inactive    #0F0F0F #7FB256 #E5E5E5
-client.unfocused    #0F0F0F #5697B2 #E5E5E5
-client.urgent        #0F0F0F #BC9B54 #E5E5E5
+client.focused        #0F0F0F #454545 #b9b9b9
+client.focused_inactive    #0F0F0F #353535 #b9b9b9
+client.unfocused    #0F0F0F #353535 #b9b9b9
+client.urgent        #0F0F0F #BC9B54 #b9b9b9
 # /LOOKS
 
 # WINDOW ASSIGNMENTS
 for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
-assign [class="Firefox"] 2
-assign [class="Pidgin"] 1
+assign [class="Firefox"] "二"
+assign [class="Pidgin"] "一"
 for_window [class="Firefox"] border 1pixel
 for_window [Class="Google-chrome"] border 1pixel
 for_window [Class="google-chrome"] border 1pixel
@@ -208,11 +208,11 @@ bar {
         tray_output primary
         colors  {
             background #0F0F0F
-            statusline #D5D5D5
-            focused_workspace #F5F5FF #7FB256
-            active_workspace #E5E5E5 #5697B2
-            inactive_workspace #E5E5E5 #5697B2
-            urgent_workspace #E5E5E5 #d91e1e
+            statusline #d5d5d5
+            focused_workspace #b9b9b9 #454545
+            active_workspace #b9b9b9 #353535
+            inactive_workspace #b9b9b9 #353535
+            urgent_workspace #b9b9b9 #d91e1e
         }
         position top
 }
