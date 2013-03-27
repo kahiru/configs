@@ -1,0 +1,7 @@
+# 
+# /etc/fstab: static file system information
+#
+# <file system>	<dir>	<type>	<options>	<dump>	<pass>
+UUID=553297e0-f343-4b73-b9e6-45a27feb2970 / ext4 defaults 0 1
+/dev/sda2 /media/Win ntfs-3g defaults 0 0
+/dev/sda3 /media/Dat ntfs-3g defaults 0 0

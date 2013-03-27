@@ -1,0 +1,45 @@
+#!/bin/bash
+BASE=http://mangareader.net
+DIR=`echo $1 | grep -o chapter-.* | awk -F "." ' { print $1 } ' | awk -F "-" ' { print $2 } '`
+CURRENT=`echo $1`
+NPART=`wget -q -O - $CURRENT | grep -o \<span\ class=\"next\".*\>Next | uniq | awk -F "\"" ' { print $4 } '`
+TIMGC=0
+TCHC=0
+CIMGC=0
+NAME=1
+SEP="-----------------------------------------------------------------------------------------"
+while [ -n "$NPART" ]; do
+	TEMP=`pwd | grep -v $DIR`
+	if [  -n $TEMP ]; then
+		if [ !  -d $DIR ]; then
+			mkdir $DIR
+			echo "Created directory $DIR."
+			fi
+		cd $DIR 
+		DIR=`pwd`
+		let TCHC=TCHC+1
+	fi
+	IMG=`wget -q -O - $CURRENT | grep -o imgholder.* | grep -o http://.* | awk -F "\"" ' { print $1 } '`
+	wget -nc -O $NAME.jpg -nv $IMG && let TIMGC=TIMGC+1 && let CIMGC=CIMGC+1
+	let NAME=NAME+1
+	NDIR=`echo $NPART | grep -o chapter-.* | awk -F "." ' { print $1 } ' | awk -F "-" ' { print $2 } '` 
+	TEMP=`echo $DIR | grep $NDIR`
+	if [ -z $TEMP ]; then
+		cd ..
+		echo $SEP
+		NAME=1
+		echo "Images in $DIR: $CIMGC"
+		echo "Changing chapter to $NDIR"
+		echo $SEP
+		echo
+		let CIMGC=0
+		let TCHC=TCHC+1
+		DIR=`echo $NDIR`
+	fi
+	CURRENT=""
+	CURRENT=`echo $BASE$NPART`
+NPART=`wget -q -O - $CURRENT | grep -o \<span\ class=\"next\".*\>Next | uniq | awk -F "\"" ' { print $4 } '`
+done
+echo "Last downloaded: $CURRENT"
+echo "Total chapters: $TCHC"
+echo "Total images: $TIMGc"
