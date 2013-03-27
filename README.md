@@ -1,4 +1,8 @@
 configs
 =======
 
-Collection of my configs for daily use
+Collection of my configs and scripts for daily use
+collected from
+/etc/
+~/
+/usr/bin/
