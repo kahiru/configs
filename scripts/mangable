@@ -1,0 +1,22 @@
+#!/bin/bash
+SEP="-----------------------------------------------------------------------------------------"
+BASE=http://mangable.com
+MANGA=`wget -q -O - $1 | grep -o javascript:window.location.*\; | head -n1 |  awk -F"/" ' { print $2 } '`
+IMGPREF=/files/images/$MANGA/
+CHAPTERS=`wget -O - -q $1 | grep -o \<option\ value[^\>]*\> | head -n1 | awk -F"\"" ' { print $2 } '`
+
+for i in `seq 1 $CHAPTERS`; do
+	mkdir $i
+	cd $i
+	MINP=`wget -q -O - $BASE/$MANGA/chapter-$i/ | grep -o \<option\ value[^\>]*\ SELECTED\> | tail -n1 | awk -F"\"" ' { print $2 } '`
+	MAXP=`wget -q -O - $BASE/$MANGA/chapter-$i/| grep -o \<option\ value[^\>]*\> | tail -n1 | awk -F"\"" ' { print $2 } '`
+	for j in `seq $MINP $MAXP`; do
+		(wget -nv $BASE$IMGPREF$i/$j.jpg & wait %1; ) &
+	done
+	wait
+	echo $SEP
+	echo "Finished downloading pages $MINP-$MAXP of chapter $i."
+	echo $SEP
+	echo
+	cd ..
+done

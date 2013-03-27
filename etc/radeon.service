@@ -1,0 +1,10 @@
+#from /etc/systemd/system/
+[Unit]
+Description=Turns off DGPU
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/dgpuoff.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,80 @@
+#!/usr/bin/python2
+import Queue
+import urllib
+import re
+import sys
+import os.path
+import threading
+
+class ThreadUrl(threading.Thread):
+	def __init__(self,queue):
+		threading.Thread.__init__(self)
+		self.queue=queue
+
+	def run(self):
+		host=self.queue.get()
+		dlfile(host)
+		self.queue.task_done()
+
+def dlfile(file):
+	file=file[10:]
+	file='http://'+file
+	imgsrc=urllib.urlopen(file)
+	imgname=file[-17:]
+	if (os.path.isfile(imgname)):
+		print("Skip "+imgname)
+		#skip+=1
+	else:
+		output=open(imgname,'wb')
+		output.write(imgsrc.read())
+		print("DL "+imgname)
+		output.close()
+
+count=0
+skip=0
+queue=Queue.Queue()
+singlelock=threading.Lock()
+if (len(sys.argv)==1):
+	url=raw_input('Vlozte link: ')
+else:
+	url=sys.argv[1]
+link=urllib.urlopen(url)
+src=link.read()
+#x=re.compile('\<span class=\"subject\"\>.+?\<\/span\>')
+#folder=re.findall(x,src)[0]
+#folder=folder[22:-7]
+#if (folder=='</span> ') or (folder=='</span>'):
+#	print 'Thread subject 404'
+folder=raw_input('Enter folder name: ')
+if not os.path.exists(folder):
+	os.makedirs(folder)
+os.chdir(folder)
+print("Folder "+folder)
+x=re.compile('a href="//images.4chan.org/[^"]+')
+imgs=re.findall(x,src)
+for i in range(5):
+	t=ThreadUrl(queue)
+	t.setDaemon(True)
+	t.start()
+for elem in imgs:
+	#elem=elem[10:]
+	#elem='http://'+elem
+	#imgsrc=urllib.urlopen(elem)
+	#imgname=elem[-17:]
+	#if (os.path.isfile(imgname)):
+		#print("Skip "+imgname)
+		#skip+=1
+		#continue
+	#output=open(imgname,'wb')
+	#output.write(imgsrc.read())
+	#print("DL "+imgname)
+	#output.close()
+	#count+=1
+	try:
+		queue.put(elem,block=True, timeout=2)
+	except:
+		singlelock.acquire()
+		singlelock.release()
+queue.join()
+print('DL complete - '+str(count)+' files.')
+print('Skipped '+str(skip)+' files.')

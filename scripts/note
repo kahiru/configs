@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ -f ~/.notes ]; then
+	cat ~/.notes > /tmp/xruzic43-notes
+	echo -e "$1" > ~/.notes
+	cat /tmp/xruzic43-notes >> ~/.notes
+else
+	echo "$1" > ~/.notes
+fi
+[ -f /tmp/xruzic43-notes ] && rm /tmp/xruzic43-notes

@@ -1,0 +1,41 @@
+#!/usr/bin/python2
+import urllib
+import re
+import sys
+import os.path
+count=0
+skip=0
+if (len(sys.argv)==1):
+	url=raw_input('Vlozte link: ')
+else:
+	url=sys.argv[1]
+link=urllib.urlopen(url)
+src=link.read()
+#x=re.compile('\<span class=\"subject\"\>.+?\<\/span\>')
+#folder=re.findall(x,src)[0]
+#folder=folder[22:-7]
+#if (folder=='</span> ') or (folder=='</span>'):
+#	print 'Thread subject 404'
+folder=raw_input('Enter folder name: ')
+if not os.path.exists(folder):
+	os.makedirs(folder)
+os.chdir(folder)
+print("Folder "+folder)
+x=re.compile('a href="//images.4chan.org/[^"]+')
+imgs=re.findall(x,src)
+for elem in imgs:
+	elem=elem[10:]
+	elem='http://'+elem
+	imgsrc=urllib.urlopen(elem)
+	imgname=elem[-17:]
+	if (os.path.isfile(imgname)):
+		print("Skip "+imgname)
+		skip+=1
+		continue
+	output=open(imgname,'wb')
+	output.write(imgsrc.read())
+	print("DL "+imgname)
+	output.close()
+	count+=1
+print('DL complete - '+str(count)+' files.')
+print('Skipped '+str(skip)+' files.')

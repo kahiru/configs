@@ -1,0 +1,4 @@
+#!/bin/bash
+cat ~/.notes | grep -E -v "$@" > /tmp/xruzic43-notes
+cat /tmp/xruzic43-notes > ~/.notes
+rm /tmp/xruzic43-notes

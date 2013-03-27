@@ -1,0 +1,12 @@
+font -*-dejavu sans-*-*-*-*-*-*-*-*-*-*-*-*
+background no
+out_to_x no
+out_to_console yes
+update_interval 1
+total_run_times 0
+use_spacer none
+mpd_host localhost
+
+TEXT
+${mpd_status}: ${mpd_artist} - ${mpd_title} | ${exec acpi -V | head -n1} | ${time  %a %d.%m.%Y %k:%M} 
+

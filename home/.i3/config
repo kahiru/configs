@@ -1,0 +1,227 @@
+# APPLAUNCH
+bindsym $mod+F12 exec /usr/bin/screenlock.sh lock
+bindsym $mod+Shift+F12 exec /usr/bin/screenlock.sh dpmslock
+bindsym $mod+w exec exec google-chrome 
+bindsym $mod+f exec pcmanfm
+bindsym $mod+Return exec sakura
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "xft:droid sans:bold:pixelsize=11:antialias=true:hinting=slight" -nb "#0f0f0f" -nf "#a6a6a6" -sb "#0f0f0f" -sf "#8f8fed"
+# /APPLAUNCH
+
+set $mod Mod4
+bindsym $mod+x move workspace to right
+
+font -*-gohufont-medium-r-normal-*-14-100-100-100-*-*-iso10646-1
+
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+q kill
+
+# FOCUS
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+colon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+Shift+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+r layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+Shift+a focus child
+
+# /FOCUS
+
+# WORKSPACES
+
+#main output - LVDS1
+#secondary output - VGA1
+
+workspace "1e" output VGA1
+workspace "2e" output VGA1
+workspace "3e" output VGA1
+workspace "4e" output VGA1
+workspace "5e" output VGA1
+workspace "6e" output VGA1
+workspace "7e" output VGA1
+workspace "8e" output VGA1
+workspace "9e" output VGA1
+workspace "10e" output VGA1
+workspace "elock" output VGA1
+
+workspace 1 output LVDS1
+workspace 2 output LVDS1
+workspace 3 output LVDS1
+workspace 4 output LVDS1
+workspace 5 output LVDS1
+workspace 6 output LVDS1
+workspace 7 output LVDS1
+workspace 8 output LVDS1
+workspace 9 output LVDS1
+workspace 10 output LVDS1
+workspace "lock" output LVDS1
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+F1 workspace 1e
+bindsym $mod+F2 workspace 2e
+bindsym $mod+F3 workspace 3e
+bindsym $mod+F4 workspace 4e
+bindsym $mod+F5 workspace 5e
+bindsym $mod+F6 workspace 6e
+bindsym $mod+F7 workspace 7e
+bindsym $mod+F8 workspace 8e
+bindsym $mod+F9 workspace 9e
+bindsym $mod+F10 workspace 10e
+
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Shift+F1 move container to workspace 1e
+bindsym $mod+Shift+F2 move container to workspace 2e
+bindsym $mod+Shift+F3 move container to workspace 3e
+bindsym $mod+Shift+F4 move container to workspace 4e
+bindsym $mod+Shift+F5 move container to workspace 5e
+bindsym $mod+Shift+F6 move container to workspace 6e
+bindsym $mod+Shift+F7 move container to workspace 7e
+bindsym $mod+Shift+F8 move container to workspace 8e
+bindsym $mod+Shift+F9 move container to workspace 9e
+bindsym $mod+Shift+F10 move container to workspace 10e
+
+# /WORKSPACES
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+g mode "resize"
+#workspace_auto_back_and_forth yes
+
+# LOOKS
+
+client.focused        #0F0F0F #7FB256 #F5F5FF
+client.focused_inactive    #0F0F0F #7FB256 #E5E5E5
+client.unfocused    #0F0F0F #5697B2 #E5E5E5
+client.urgent        #0F0F0F #BC9B54 #E5E5E5
+
+# /LOOKS
+
+# WINDOW ASSIGNMENTS
+for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
+assign [class="Firefox"] 2
+assign [class="Pidgin"] 1
+assign [class="ncmpcpp"] 3
+assign [name="ncmpcpp ver. 0.5.10 - sakura"] 3
+for_window [class="Firefox"] border 1pixel
+for_window [Class="Google-chrome"] border 1pixel
+for_window [Class="google-chrome"] border 1pixel
+for_window [class="Pidgin"] border 1pixel
+for_window [class="ncmpcpp"] border 1pixel
+# /WINDOW ASSIGNMENTS
+
+# BAR
+bar {
+#mode hide
+font pango:VL PGothic Regular 10
+        workspace_buttons yes
+        status_command conky -c ~/.conkyrc 
+        tray_output primary
+        colors  {
+            background #0F0F0F
+            statusline #D5D5D5
+            focused_workspace #F5F5FF #7FB256
+            active_workspace #E5E5E5 #5697B2
+            inactive_workspace #E5E5E5 #5697B2
+            urgent_workspace #E5E5E5 #d91e1e
+        }
+position top
+}
+# /BAR
